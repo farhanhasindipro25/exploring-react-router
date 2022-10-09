@@ -6,6 +6,8 @@ import Products from "./components/Products/Products";
 import Default from "./layouts/Default";
 import Users from "./components/Users/Users";
 import UserDetails from "./components/UserDetails/UserDetails";
+import Posts from "./components/Posts/Posts";
+import PostDetails from "./components/PostDetails/PostDetails";
 
 function App() {
   const router = createBrowserRouter([
@@ -30,6 +32,20 @@ function App() {
             return fetch(`https://jsonplaceholder.typicode.com/users/${params.userId}`);
           },
           element: <UserDetails></UserDetails>,
+        },
+        {
+          path: 'posts',
+          loader: async ()=>{
+            return fetch('https://jsonplaceholder.typicode.com/posts');
+          },
+          element: <Posts></Posts>
+        },
+        {
+          path: 'post/:postId',
+          loader: async ({params})=>{
+            return fetch(`https://jsonplaceholder.typicode.com/posts/${params.postId}`);
+          },
+          element: <PostDetails></PostDetails>
         },
       ],
     },

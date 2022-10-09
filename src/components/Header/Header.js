@@ -1,17 +1,43 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./Header.css";
 
 const Header = () => {
   return (
     <div>
       <nav className="header">
-        <Link to="/home">Home</Link>
-        <Link to="/about">About</Link>
-        <Link to="/products">Products</Link>
-        <Link to="/users">Users</Link>
+        <NavLink
+          className={({ isActive }) => (isActive ? "active" : undefined)}
+          to="/home"
+        >
+          Home
+        </NavLink>
+        <NavLink
+          className={({ isActive }) => (isActive ? "active" : undefined)}
+          to="/about"
+        >
+          About
+        </NavLink>
+        <NavLink
+          className={({ isActive }) => (isActive ? "active" : undefined)}
+          to="/products"
+        >
+          Products
+        </NavLink>
+        <NavLink
+          className={({ isActive }) => (isActive ? "active" : undefined)}
+          to="/users"
+        >
+          Users
+        </NavLink>
+        <NavLink
+          className={({ isActive }) => (isActive ? "active" : undefined)}
+          to="/posts"
+        >
+          Posts
+        </NavLink>
       </nav>
-      <p>This part is common for all navigation links</p>
+      <p>This part is common for all navigation NavLinks</p>
     </div>
   );
 };

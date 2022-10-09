@@ -100,13 +100,16 @@ const users = useLoaderData();
 - Next, values from this fetched data can be sent as props to it's child components.
 - The respective variables can be destructured and then displayed in the UI.
 
-# React route paramater
+# React route parameter
 # Loading data based on Dynamic Routes
 # Creating Dynamic Routes
 
 This can be done in two ways.
 
+
 1. Select the element through which the dynamic route needs to be established. Establish a ```<Link></Link>``` tag and on it's "to" attribute, add the link dynamically using template literals.
+
+### WAY ONE
 
 ```
 <p>            
@@ -115,6 +118,30 @@ This can be done in two ways.
     {username}
   </Link>
 </p>
+```
+
+### WAY TWO
+```
+<Link to={`/post/${id}`}>
+  <button className='btn-post-details'>
+    Show Details
+  </button>
+</Link>
+```
+
+### WAY THREE
+
+```
+const navigate = useNavigate();
+const handleNavigate = () => {
+  navigate(`post/${id}`)
+}
+return (
+  <div>
+    <button onClick={handleNavigate}>See Post</button>
+  </div>
+);
+
 ```
 
 2. Now to define the route, when that dynamic route is visited, a new object is created within the browser router array of objects. The element is the component that displays certain things when that dynamic route is visited. In this case ```<UserDetails></UserDetails>```. The path is set dynamically as a variable, so that for each user, the URL has a different ID.

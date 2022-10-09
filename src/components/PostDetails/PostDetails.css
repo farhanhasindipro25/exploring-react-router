@@ -1,0 +1,19 @@
+.postDetail{
+    border: 2px solid aqua;
+    background-color: rgb(12, 12, 12);
+    color: white;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 15px;
+}
+.btn-author{
+    background-color: aqua;
+    border: none;
+    padding: 10px 12px;
+    margin-right: 10px;
+}
+
+
+.btn-author:hover{
+    background-color: rgb(13, 221, 221);
+}

@@ -1,0 +1,19 @@
+.post{
+    border: 2px solid aqua;
+    background-color: rgb(12, 12, 12);
+    color: white;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 15px;
+}
+
+.btn-post-details{
+    background-color: aqua;
+    border: none;
+    padding: 10px 12px;
+    margin-right: 10px;
+}
+
+.btn-post-details:hover{
+    background-color: rgb(13, 221, 221);
+}
