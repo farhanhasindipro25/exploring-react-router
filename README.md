@@ -7,12 +7,16 @@
 
 ->   
 ```
-const router = createBrowserRouter([])```
+const router = createBrowserRouter([])
+
+```
 
 3. Add RouterProvider and pass router props. The props value will be the router created from the Browser Router. Do this inside the return statement of App.js.
 
 -> 
-```<RouterProvider router={router}></RouterProvider>```
+```
+<RouterProvider router={router}></RouterProvider>
+```
 
 4. Create some routes.
 - Needs two things
