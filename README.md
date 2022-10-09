@@ -100,7 +100,8 @@ const users = useLoaderData();
 - Next, values from this fetched data can be sent as props to it's child components.
 - The respective variables can be destructured and then displayed in the UI.
 
-
+# React route paramater
+# Loading data based on Dynamic Routes
 # Creating Dynamic Routes
 
 This can be done in two ways.
@@ -110,8 +111,26 @@ This can be done in two ways.
 ```
 <p>            
   UserName: 
-  <Link to={`/friend/${id}`}>
+  <Link to={`/user/${id}`}>
     {username}
   </Link>
 </p>
 ```
+
+2. Now to define the route, when that dynamic route is visited, a new object is created within the browser router array of objects. The element is the component that displays certain things when that dynamic route is visited. In this case ```<UserDetails></UserDetails>```. The path is set dynamically as a variable, so that for each user, the URL has a different ID.
+
+-> 
+```
+{
+  path: "/user/:userId",
+  loader: async ({ params }) => {
+    // console.log(params.userId);
+    return fetch(`https://jsonplaceholder.typicode.com/users/${params.userId}`);
+  },
+  element: <UserDetails></UserDetails>,
+},
+```
+
+3. The asynchronous loader arrow function takes the dynamic part of the route as destructured parameters. This helps to fetch data from the API for specific userIDs making the URL dynamic.
+
+4. The ```<UserDetails></UserDetails>``` component then can show information from the API into the UI by destructuring the variables as needed from the variable that stores the fetched data from the "useLoaderData()" hook.

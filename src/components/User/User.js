@@ -10,7 +10,7 @@ const User = ({ user }) => {
       <p>Email ID: {email}</p>
       <p>
         <small>
-            UserName: <Link to={`/friend/${id}`}>
+            UserName: <Link to={`/user/${id}`}>
                 {username}
             </Link>
         </small>
