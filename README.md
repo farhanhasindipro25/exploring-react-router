@@ -48,7 +48,7 @@ const router = createBrowserRouter
 2. Create components to add what to be displayed when that route is visited.
 3. Add route so that react router knows the component it needs to display while that route is visited.
 
-# Maintaining efficient header
+# Maintaining an efficient header
 
 1. Create a layouts/pages folder.
 2. Create components inside the folder as per the names of required pages, in this case Main.js.
@@ -71,5 +71,47 @@ const router = createBrowserRouter([
         { path: "/products", element: <Products></Products> },
       ],
     },
-  ]);
+]);
+```
+
+# Loading API data
+
+1. Let's say the component is Users.
+2. In App.js, the browser router array of objects has it's particular object for the route defined for users.
+3. In that object, take a new property called loader, which will have the value as an asynchronous arrow function, returning the API link fetched.
+
+```
+{ 
+  path: "/users", 
+  loader: async ()=>{
+    return fetch('https://jsonplaceholder.typicode.com/users')
+  },
+ element: <Users></Users> 
+}
+```
+
+4. Now use the ```useLoaderData()``` hook to load the fetched data that the loader asynchronous arrow function fetched. Do this inside the Users component.
+
+```
+const users = useLoaderData();
+```
+
+- The users value here will store the data fetched from the API.
+- Next, values from this fetched data can be sent as props to it's child components.
+- The respective variables can be destructured and then displayed in the UI.
+
+
+# Creating Dynamic Routes
+
+This can be done in two ways.
+
+1. Select the element through which the dynamic route needs to be established. Establish a ```<Link></Link>``` tag and on it's "to" attribute, add the link dynamically using template literals.
+
+```
+<p>            
+  UserName: 
+  <Link to={`/friend/${id}`}>
+    {username}
+  </Link>
+</p>
 ```
