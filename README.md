@@ -60,7 +60,8 @@ const router = createBrowserRouter
 8. The things that are uncommon or different, as per the UI, i.e, things that will change as per different routes, take place within the ```<Outlet>```
 
 ->
-```const router = createBrowserRouter([
+```
+const router = createBrowserRouter([
     {
       path: "/",
       element: <Default></Default>,
