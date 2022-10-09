@@ -4,8 +4,7 @@ import Header from "../Header/Header";
 const About = () => {
   return (
     <div>
-        <Header></Header>
-        <h2>About Component</h2>
+      <h2>About Component</h2>
     </div>
   );
 };
